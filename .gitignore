@@ -1,0 +1,12 @@
+# Local KMYC config (see config.example.conf)
+config.conf
+
+# Hook runtime state
+hook/.lock
+hook/state.json
+hook/backups/
+*.log
+
+# Python bytecode
+__pycache__/
+*.py[cod]

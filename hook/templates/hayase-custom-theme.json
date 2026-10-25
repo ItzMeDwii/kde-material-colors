@@ -1,0 +1,21 @@
+{
+  "--custom-background": "{{ colors.surface.default.hex }}",
+  "--custom-foreground": "{{ colors.on_surface.default.hex }}",
+  "--custom-muted": "{{ colors.surface_container.default.hex }}",
+  "--custom-muted-foreground": "{{ colors.on_surface_variant.default.hex }}",
+  "--custom-card": "{{ colors.surface_container_low.default.hex }}",
+  "--custom-card-foreground": "{{ colors.on_surface.default.hex }}",
+  "--custom-popover": "{{ colors.surface_container_high.default.hex }}",
+  "--custom-popover-foreground": "{{ colors.on_surface.default.hex }}",
+  "--custom-border": "{{ colors.outline_variant.default.hex }}",
+  "--custom-input": "{{ colors.outline.default.hex }}",
+  "--custom-primary": "{{ colors.primary.default.hex }}",
+  "--custom-primary-foreground": "{{ colors.on_primary.default.hex }}",
+  "--custom-secondary": "{{ colors.secondary_container.default.hex }}",
+  "--custom-secondary-foreground": "{{ colors.on_secondary_container.default.hex }}",
+  "--custom-accent": "{{ colors.surface_container_highest.default.hex }}",
+  "--custom-accent-foreground": "{{ colors.on_surface.default.hex }}",
+  "--custom-destructive": "{{ colors.error_container.default.hex }}",
+  "--custom-destructive-foreground": "{{ colors.on_error_container.default.hex }}",
+  "--custom-ring": "{{ colors.primary.default.hex }}"
+}

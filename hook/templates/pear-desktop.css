@@ -1,0 +1,146 @@
+/* Material You colours for Pear Desktop (YouTube Music).
+ * Colours only: overrides YouTube Music's own CSS custom properties (the
+ * ytmusicweb base stylesheet: --ytmusic-*, --yt-sys-color-baseline--*),
+ * so the default UI keeps its layout and just follows the M3 palette.
+ * !important is required because YouTube Music redefines these tokens under
+ * html[dark] / html[music-web-color-migration] with higher specificity.
+ */
+
+html {
+  color-scheme: {{ mode }};
+
+  /* -- YouTube Music palette (feeds the --ytmusic-* semantics) ------------- */
+  --ytmusic-color-white1: {{ colors.on_surface.default.hex }} !important;
+  --ytmusic-color-grey2: {{ colors.on_surface_variant.default.hex }} !important;
+  --ytmusic-color-grey3: {{ colors.on_surface_variant.default.hex }} !important;
+  --ytmusic-color-grey4: {{ colors.outline.default.hex }} !important;
+  --ytmusic-color-grey5: {{ colors.outline_variant.default.hex }} !important;
+  --ytmusic-color-black1: {{ colors.surface_container.default.hex }} !important;
+  --ytmusic-color-black2: {{ colors.surface_container_low.default.hex }} !important;
+  --ytmusic-color-black4: {{ colors.surface.default.hex }} !important;
+  --ytmusic-color-blackpure: {{ colors.surface_container_lowest.default.hex }} !important;
+  --ytmusic-color-lightblue: {{ colors.primary.default.hex }} !important;
+  --ytmusic-color-lightred: {{ colors.error.default.hex }} !important;
+  --ytmusic-color-navyblue: {{ colors.secondary_container.default.hex }} !important;
+  --ytmusic-opalescence-dark-grey: {{ colors.surface_container_high.default.hex }} !important;
+  --ytmusic-white-5: {{ colors.outline_variant.default.hex }} !important;
+
+  /* -- yt-sys baseline tokens (html[dark] / [light],html) ------------------ */
+  --yt-sys-color-baseline--base-background: {{ colors.surface.default.hex }} !important;
+  --yt-sys-color-baseline--raised-background: {{ colors.surface_container.default.hex }} !important;
+  --yt-sys-color-baseline--menu-background: {{ colors.surface_container_high.default.hex }} !important;
+  --yt-sys-color-baseline--inverted-background: {{ colors.inverse_surface.default.hex }} !important;
+  --yt-sys-color-baseline--text-primary: {{ colors.on_surface.default.hex }} !important;
+  --yt-sys-color-baseline--text-secondary: {{ colors.on_surface_variant.default.hex }} !important;
+  --yt-sys-color-baseline--text-disabled: {{ colors.outline.default.hex }} !important;
+  --yt-sys-color-baseline--text-primary-inverse: {{ colors.inverse_on_surface.default.hex }} !important;
+  --yt-sys-color-baseline--call-to-action: {{ colors.primary.default.hex }} !important;
+  --yt-sys-color-baseline--call-to-action-inverse: {{ colors.primary.default.hex }} !important;
+  --yt-sys-color-baseline--call-to-action-hover: {{ colors.primary.default.hex }} !important;
+  --yt-sys-color-baseline--suggested-action: {{ colors.secondary_container.default.hex }} !important;
+  --yt-sys-color-baseline--suggested-action-inverse: {{ colors.secondary_container.default.hex }} !important;
+  --yt-sys-color-baseline--touch-response: {{ colors.on_surface.default.hex }} !important;
+  --yt-sys-color-baseline--outline: {{ colors.outline_variant.default.hex }} !important;
+  --yt-sys-color-baseline--outline-opaque: {{ colors.outline_variant.default.hex }} !important;
+  --yt-sys-color-baseline--solid-background: {{ colors.inverse_surface.default.hex }} !important;
+  --yt-sys-color-baseline--solid-background-inverse: {{ colors.surface.default.hex }} !important;
+  --yt-sys-color-baseline--error-indicator: {{ colors.error.default.hex }} !important;
+  --yt-sys-color-baseline--red-indicator: {{ colors.error.default.hex }} !important;
+  --yt-deprecated-general-background-a: {{ colors.surface_container_low.default.hex }} !important;
+  --yt-deprecated-general-background-b: {{ colors.surface.default.hex }} !important;
+  --yt-deprecated-general-background-c: {{ colors.surface_container_lowest.default.hex }} !important;
+
+  /* Fade-out gradients behind header artwork must end in the new surface. */
+  --yt-sys-color-baseline--scrim-background-gradient-1: color-mix(in srgb, {{ colors.surface.default.hex }} 0%, transparent) !important;
+  --yt-sys-color-baseline--scrim-background-gradient-2: color-mix(in srgb, {{ colors.surface.default.hex }} 30%, transparent) !important;
+  --yt-sys-color-baseline--scrim-background-gradient-3: color-mix(in srgb, {{ colors.surface.default.hex }} 60%, transparent) !important;
+  --yt-sys-color-baseline--scrim-background-gradient-4: color-mix(in srgb, {{ colors.surface.default.hex }} 90%, transparent) !important;
+  --yt-sys-color-baseline--scrim-background-gradient-5: {{ colors.surface.default.hex }} !important;
+
+  /* -- ytmusic semantics (legacy and music-web-color-migration layers) ----- */
+  --ytmusic-background: {{ colors.surface.default.hex }} !important;
+  --ytmusic-brand-background-solid: {{ colors.surface_container.default.hex }} !important;
+  --ytmusic-nav-bar: {{ colors.surface_container.default.hex }} !important;
+  --ytmusic-player-bar-background: {{ colors.surface_container.default.hex }} !important;
+  --ytmusic-player-bar-container-color: {{ colors.outline.default.hex }} !important;
+  --ytmusic-player-bar-disabled-secondary-color: {{ colors.on_surface_variant.default.hex }} !important;
+  --ytmusic-player-bar-repeat-disabled: {{ colors.outline.default.hex }} !important;
+  --ytmusic-player-controls-button-disabled: {{ colors.outline.default.hex }} !important;
+  --ytmusic-general-background-c: {{ colors.surface.default.hex }} !important;
+  --ytmusic-text-primary: {{ colors.on_surface.default.hex }} !important;
+  --ytmusic-text-primary-inverse: {{ colors.inverse_on_surface.default.hex }} !important;
+  --ytmusic-text-secondary: {{ colors.on_surface_variant.default.hex }} !important;
+  --ytmusic-icon-inactive: {{ colors.on_surface_variant.default.hex }} !important;
+  --ytmusic-icon-disabled: {{ colors.outline.default.hex }} !important;
+  --ytmusic-color-close-button: {{ colors.on_surface_variant.default.hex }} !important;
+  --ytmusic-color-input-border: {{ colors.outline_variant.default.hex }} !important;
+  --ytmusic-divider: {{ colors.outline_variant.default.hex }} !important;
+  --ytmusic-guide-divider: {{ colors.outline_variant.default.hex }} !important;
+  --ytmusic-confirm-dialog-outline: {{ colors.outline_variant.default.hex }} !important;
+  --ytmusic-navigation-button-outline-color: {{ colors.outline_variant.default.hex }} !important;
+  --ytmusic-toggle-button-chip-border-color: {{ colors.outline_variant.default.hex }} !important;
+  --ytmusic-search-bar-border-bauhaus: {{ colors.outline_variant.default.hex }} !important;
+  --ytmusic-immersive-carousel-button-border: {{ colors.outline_variant.default.hex }} !important;
+  --ytmusic-shelf-bottom-button-border-color: {{ colors.outline_variant.default.hex }} !important;
+  --ytmusic-guide-entry-focus-border: {{ colors.outline_variant.default.hex }} !important;
+  --ytmusic-dropdown-border-color: {{ colors.outline_variant.default.hex }} !important;
+  --ytmusic-focus-active: {{ colors.primary.default.hex }} !important;
+  --ytmusic-search-suggestion-focus-active: {{ colors.primary.default.hex }} !important;
+  --ytmusic-playback-progress-color: {{ colors.primary.default.hex }} !important;
+  --ytmusic-dropdown-background: {{ colors.surface_container_high.default.hex }} !important;
+  --ytmusic-dialog-background-color: {{ colors.surface_container_high.default.hex }} !important;
+  --ytmusic-search-bar-background-bauhaus: {{ colors.surface_container_high.default.hex }} !important;
+  --ytmusic-alert-with-actions-background: {{ colors.surface.default.hex }} !important;
+  --ytmusic-alert-with-actions-header-text: {{ colors.on_surface.default.hex }} !important;
+  --ytmusic-dropdown-error-color: {{ colors.error.default.hex }} !important;
+  --ytmusic-inverted-background: {{ colors.inverse_surface.default.hex }} !important;
+  --ytmusic-horizontal-action-card-background: {{ colors.surface.default.hex }} !important;
+  --ytmusic-detail-header: {{ colors.surface.default.hex }} !important;
+  --ytmusic-message-renderer-icon-color: {{ colors.on_surface_variant.default.hex }} !important;
+  --ytmusic-message-renderer-text-color: {{ colors.on_surface_variant.default.hex }} !important;
+  --ytmusic-guide-signin-promo-text-secondary: {{ colors.on_surface_variant.default.hex }} !important;
+  --ytmusic-search-box-text-secondary: {{ colors.on_surface_variant.default.hex }} !important;
+  --ytmusic-search-suggestion-text-secondary: {{ colors.on_surface_variant.default.hex }} !important;
+  --ytmusic-search-suggestion-icon-color: {{ colors.on_surface_variant.default.hex }} !important;
+  --ytmusic-call-to-action-disclaimer: {{ colors.on_surface_variant.default.hex }} !important;
+  --ytmusic-inline-badge-color: {{ colors.on_surface_variant.default.hex }} !important;
+  --ytmusic-item-section-info-panel-overview-background: {{ colors.secondary_container.default.hex }} !important;
+  --ytmusic-carousel-shelf-button-disabled: {{ colors.outline.default.hex }} !important;
+  --ytmusic-toggle-button-chip-active-background: {{ colors.on_surface.default.hex }} !important;
+
+  /* -- paper elements (dialogs, dropdowns, toggles) ------------------------ */
+  --paper-dialog-background-color: {{ colors.surface_container_high.default.hex }} !important;
+  --paper-listbox-background-color: {{ colors.surface_container_high.default.hex }} !important;
+  --paper-menu-background-color: {{ colors.surface_container_high.default.hex }} !important;
+  --paper-listbox-color: {{ colors.on_surface.default.hex }} !important;
+  --paper-input-container-focus-color: {{ colors.primary.default.hex }} !important;
+  --disabled-text-color: {{ colors.outline.default.hex }} !important;
+}
+
+/* Subscribe button: hardcoded pink outside the variable layers. */
+ytmusic-subscribe-button-renderer {
+  --ytmusic-subscribe-button-color: {{ colors.primary.default.hex }} !important;
+  --ytmusic-subscribe-button-outline-color: {{ colors.primary.default.hex }} !important;
+}
+ytmusic-subscribe-button-renderer[is-subscribed] {
+  --ytmusic-subscribe-button-color: {{ colors.on_surface_variant.default.hex }} !important;
+  --ytmusic-subscribe-button-outline-color: {{ colors.on_surface_variant.default.hex }} !important;
+}
+
+/* Seek bar: hardcoded red gradient, knob only coloured on hover/focus. */
+#progress-bar.ytmusic-player-bar,
+ytmusic-player-bar[is-mobile-web] #progress-bar.ytmusic-player-bar {
+  --paper-slider-active-color: {{ colors.primary.default.hex }} !important;
+  --paper-slider-disabled-active-color: {{ colors.primary.default.hex }} !important;
+}
+ytmusic-player-bar:hover #progress-bar.ytmusic-player-bar,
+ytmusic-player-bar #progress-bar.ytmusic-player-bar[focused] {
+  --paper-slider-knob-color: {{ colors.primary.default.hex }} !important;
+  --paper-slider-knob-start-color: {{ colors.primary.default.hex }} !important;
+  --paper-slider-knob-start-border-color: {{ colors.primary.default.hex }} !important;
+}
+
+/* Sticky tab strip: hardcoded near-black background. */
+ytmusic-tabs.stuck {
+  background-color: {{ colors.surface.default.hex }} !important;
+}
