@@ -109,7 +109,7 @@ does not stop the rest of the run.
 | `hayase` | `~/.config/hayase/material-you-custom-theme.json` + the `settings` record in `~/.config/hayase/Local Storage/leveldb` | LevelDB directory copied to `hook/backups/` once, before the first patch |
 | `nvim` | `~/.config/nvim/colors/material-you.lua`, `~/.config/nvim/lua/plugins/material-you.lua` | LazyVim spec that selects the colourscheme |
 | `pear-desktop` | `~/.config/YouTube Music/material-you.css` | registers the file in `config.json` → `options.themes`; restart the app |
-| `steam-material-theme` | `<steam>/millennium/themes/Material-Theme/css/main/colors/matugen.css` | Millennium `Color` must be `Matugen`; the theme re-reads the file every 1.5 s, so Steam repaints without a restart |
+| `steam-material-theme` | `<steam>/millennium/themes/Material-Theme/css/main/colors/matugen.css` | Millennium `Color` → `Custom`: the hook writes `--custom-accent-color`, and the theme rebuilds its M3 scheme in-browser from that seed — no restart, no matugen install. `Matugen` also works and reads `matugen.css` (exact M3 tokens) |
 | `vim` | `~/.vim/colors/material-you.vim`, `~/.vim/plugin/material-you.vim` | plugin applies the colourscheme on startup; cterm fallbacks included |
 
 `<steam>` is resolved across `~/.local/share/Steam`, `~/.steam/steam`,
@@ -161,8 +161,10 @@ Backups are skipped for files already carrying the
   bypasses that check.
 - **`KMYC JSON not found`** — KMYC is not running, or the hook runs in a
   namespace with a private `/tmp`; pass `--json` or set `KMYC_JSON`.
-- **Steam unchanged** — the Millennium theme must have `Color: Matugen`
-  selected; the log warns when it does not.
+- **Steam unchanged** — set the Millennium theme's `Color` to `Custom`; the hook
+  supplies `--custom-accent-color` and the theme regenerates its scheme whenever
+  `RootColors` changes. Static values (`Blue`, `Red`, …) ignore it; `Matugen`
+  reads `matugen.css` instead.
 - **Discord unchanged** — themes are written but not enabled; pick one under
   Vencord → Themes.
 - **Hayase resets** — the app rewrites its localStorage on exit; re-run the hook

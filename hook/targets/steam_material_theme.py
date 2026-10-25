@@ -2,20 +2,20 @@
 
 Target file follows the theme's own instruction (``matugentemplate.css``): matugen
 writes ``~/.steam/steam/millennium/themes/Material-Theme/css/main/colors/matugen.css``
-(``STEAM_ROOTS`` below resolves that symlink to the same file); verified live in a
-running client - the theme repaints within ~2 s, no Steam restart needed.
+(``STEAM_ROOTS`` below resolves that symlink to the same file).
 
-With ``Color: Matugen`` selected, Material-Theme's ``js/main/colors/matugen.js``
-fetches ``css/main/colors/matugen.css`` out of the installed theme folder every
-1.5 s and injects it verbatim, so writing that file is enough to recolour Steam
-live (no Steam restart).  matugen itself would render it from
-``matugentemplate.css``; this target renders the same token set from the KMYC
-palette instead, so no matugen installation is needed.
+With ``Color: Custom`` selected, Material-Theme's ``js/main/colors/custom.js``
+regenerates the full M3 scheme in the browser from ``--custom-accent-color``
+(``css/main/root-colors.css``, exposed as a Millennium ``themeColors``
+override); this target seeds it with the palette's key colour, so Steam follows
+KMYC without matugen and without a restart.
 
-The theme's other colour source is ``--custom-accent-color``
-(``css/main/root-colors.css``, exposed as a Millennium ``themeColors`` override,
-consumed by ``js/main/colors/custom.js`` for ``Color: Custom/Dynamic``); it gets
-the palette's key colour so both modes follow Material You.
+With ``Color: Matugen`` selected, ``js/main/colors/matugen.js`` instead fetches
+``css/main/colors/matugen.css`` out of the installed theme folder every 1.5 s
+and injects it verbatim, so writing that file is enough to recolour Steam live
+(no Steam restart; verified in a running client).  matugen itself would render
+it from ``matugentemplate.css``; this target renders the same token set from the
+KMYC palette instead, so no matugen installation is needed.
 """
 
 from __future__ import annotations
@@ -187,14 +187,18 @@ def _apply_accent(ctx) -> None:
 
 
 def _warn_on_color_mode() -> None:
+    """Warn only when the theme's Color mode ignores both upstream colour paths."""
     mode = (
         (_config().get("themes") or {}).get("conditions", {}).get(THEME_NAME, {}).get("Color")
     )
-    if mode != "Matugen":
-        managed.log().warning(
-            "steam-material-theme: Color is %r, not 'Matugen'; matugen.css is only loaded in Matugen mode",
-            mode,
-        )
+    if mode in ("Custom", "Matugen"):
+        return
+    managed.log().warning(
+        "steam-material-theme: Color is %r; set it to 'Custom' (uses "
+        "--custom-accent-color) or 'Matugen' (uses matugen.css) - other "
+        "values ignore the hook",
+        mode,
+    )
 
 
 def apply(ctx) -> None:
