@@ -1,4 +1,4 @@
-# dotfiles-kde-colors
+# kde-material-colors
 
 KDE Material You palette → app themes. This is an `on_change_hook` for
 [kde-material-you-colors](https://github.com/LuisBocanegra/kde-material-you-colors)
@@ -46,8 +46,8 @@ flowchart LR
 ## Install
 
 ```bash
-git clone https://github.com/ItzMeDwii/dotfiles-kde-colors.git \
-  ~/.config/dotfiles-kde-colors
+git clone https://github.com/ItzMeDwii/kde-material-colors.git \
+  ~/.config/kde-material-colors
 ```
 
 Then wire the hook in `~/.config/kde-material-you-colors/config.conf`
@@ -55,7 +55,7 @@ Then wire the hook in `~/.config/kde-material-you-colors/config.conf`
 
 ```ini
 [CUSTOM]
-on_change_hook=$HOME/.config/dotfiles-kde-colors/hook/apply.py
+on_change_hook=$HOME/.config/kde-material-colors/hook/apply.py
 pywal=true
 ```
 
@@ -63,7 +63,7 @@ pywal=true
 `~/.cache/wal/colors.json`, which KMYC exports. Apply once:
 
 ```bash
-python3 ~/.config/dotfiles-kde-colors/hook/apply.py --verbose
+python3 ~/.config/kde-material-colors/hook/apply.py --verbose
 ```
 
 Keep the repository layout intact: `targets/` and `templates/` are resolved
