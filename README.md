@@ -1,5 +1,7 @@
 # kde-material-colors
 
+This repo is used for backup only, dont expect any update / fix.
+
 KDE Material You palette → app themes. This is an `on_change_hook` for
 [kde-material-you-colors](https://github.com/LuisBocanegra/kde-material-you-colors)
 (KMYC): every time KMYC writes a new Material 3 palette, the hook projects it
